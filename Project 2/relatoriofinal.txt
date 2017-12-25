@@ -1,0 +1,68 @@
+Matrícula: 1321440 - Tatiana de Oliveira Magdalena - 3WB
+Matrícula: 1211971 - Fernando Homem da Costa - 3WB
+
+
+/******************************************************/
+/****** Linguagem Minima (Geracod) ******/
+
+O Compilador:
+
+A maior dificuldade do trabalho foi tentar entender como relacionaríamos os códigos de máquina com o que era pedido no enunciado do trabalho,
+além disso foi tentar cobrir todas as possibilidades que o enunciado nos deixava. Sabendo que tanto poderíamos ter 5 variáveis, 5 paramêtros, constantes
+e também combinações entre elas.
+
+Começamos pelo caso da "Ret" pois esse era o mais simples e ajudaria no entendimento melhor do trabalho, os maiores desafios foram:
+- Escrever um int em Little Endian e armazená-lo em um vetor de unsigned char.
+- Perceber e encontrar uma equação para calcular os índices de variáveis ou paramêtros.
+
+No caso da atribuição, percebemos que haveria muitas combinações entre paramêtros, variáveis , constantes e que teríamos que ter cuidado com as explosões de combinações,
+visto isso buscamos reutilizar a equação de calcular os índices de variáveis ou paramêtros para reduzir a quantidade de combinações e assim otimizando o código dentro dos 
+padrões do enunciado.
+
+Além disso, ainda teríamos o caso "ifeq", o mais complexo e que exigia maior entendimento dos laboratório feito nas aulas, os desafios estavam em descobrir os endereços
+para onde queríamos ir, pois nem sempre era possível obter-lo instantâneamente, é necessário ter percorrido o código todo para conseguir obter todos os endereços.
+Também enfrentamos dificuldades ao relacionar a linha lida no arquivo Minima e para onde queríamos ir, além disso organizar e resolver os buracos deixados pelo jumpe pelo
+o fato de não conhecermos o endereço para onde ifeq quer ir. 
+
+Ao final do código, percebemos que todo final era igual, devido ao padrão da linguagem assembly (mov %ebp, %esp / pop %ebp / ret).
+
+Dificuldades ao compilar:
+
+Foram feitos vários testes com "Ret" e "Atribuição":
+
+- Ret cte: ok
+
+- Ret parm: ok
+
+- Dois rets seguidos: ok
+
+- Atribuicao var/parm := parm com parm: + - * ok
+
+- Atribuicao var/parm := parm/cte com cte/parm: + - * ok
+
+- Atribuicao var/parm := cte com cte: + - * ok
+
+- Atribuicao var/parm := var com var - ok 
+
+
+- Atribuicao var/parm := var com cte e cte com var - ok
+- Atribuicao var/parm := var com parm e parm com var  - ok 
+
+ 
+
+
+
+O teste com ifeq falharam, pois parece que o ifeq era ignorado e passava para próxima instrução. 
+
+Conclusões:
+
+O segundo trabalho foi bastante trabalhoso e complexo, misturando várias partes da matéria, obrigando-nos a um grande esforço e a busca de melhor entendimento da matéria. 
+Diferentemente do primeiro trabalho, este trabalho foi composto de muitas partes bastante repetitivas e analíticas para conseguir um código otimizado. 
+Tentamos buscar simplificar o máximo possível e sabemos que resultado final apresenta erros. Mas tentamos sempre relacionar o máximo aquilo que foi aprendido nas aulas 
+e buscar eliminar as dúvidas através de contato com a professora ou o monitor
+
+Apesar de ifeq aparesentar erros, entendemos o que era pedido, mesmo tendo dificuldades para relacionar e organizar o pensamento para resolver. 
+Entretanto, percebemos que a parte de Atribuição e Ret funcionam perfeitamente demonstrando uma compreensão e entendimento do que era pedido com o que fizemos.
+
+De forma geral o trabalho realizado foi um aprendizado para nós, ainda que o resultado possa não ter sido o ideal e apresente erros. 
+	
